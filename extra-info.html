@@ -1,0 +1,182 @@
+<!-- public/extra-info.html -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Maestros University - Student Login</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Font Awesome for Icons -->
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-pVjVdJg+kXjIHxFy1R72vufgq+VxF3YVtF7sV3HE7R7HzmCeZrMRo1oK3RXbVFGnDr3XaRg3Y6XU6p0Cq8Jm1w=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        />
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+<body>
+    <!-- Navigation Bar (Same as other pages) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" aria-label="Main Navigation">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <img src="images/LOGO.png" alt="Maestros University Logo" width="30" height="30" class="d-inline-block align-text-top">
+          Maestros University
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto me-3">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admissions.html">Admissions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="courses.html">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="faqs.html">FAQs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="student-portal.html">Student Portal</a>
+            </li>
+          </ul>
+          <form class="d-flex me-2" id="searchForm">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+          <button id="audioToggle" class="btn btn-secondary me-2" aria-label="Toggle Read-Aloud">
+              <i class="fas fa-play"></i> <i class="fas fa-volume-up"></i>
+          </button>
+          <button id="contrastToggle" class="btn btn-secondary" aria-label="Toggle Contrast Mode">
+              <i class="fas fa-adjust"></i> Contrast
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Extra Information Content -->
+    <main class="container my-5 pt-5">
+        <h2 class="text-center mb-4">Additional Information</h2>
+        <p class="text-center mb-5">
+            Based on your responses, here is some additional information to assist you in your decision-making process.
+        </p>
+        <div class="row">
+            <!-- Campus Activities -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="images/campus-activities.jpg" class="card-img-top" alt="Campus Activities">
+                    <div class="card-body">
+                        <h5 class="card-title">Vibrant Campus Life</h5>
+                        <p class="card-text">Explore the diverse range of extracurricular activities available to enrich your university experience.</p>
+                        <a href="courses.html" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Member Affiliations -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="images/member-affiliations.png" class="card-img-top" alt="Member Affiliations">
+                    <div class="card-body">
+                        <h5 class="card-title">Prestigious Affiliations</h5>
+                        <p class="card-text">Discover our strong partnerships with industry leaders and academic institutions worldwide.</p>
+                        <a href="admissions.html" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- What Makes Us the Best -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="images/why-best.jpg" class="card-img-top" alt="What Makes Us the Best">
+                    <div class="card-body">
+                        <h5 class="card-title">Excellence in Education</h5>
+                        <p class="card-text">Our commitment to academic excellence and innovative teaching methods sets us apart.</p>
+                        <a href="student-dashboard.html" class="btn btn-primary">Discover More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Multimedia Content: Image Carousel -->
+        <div id="infoCarousel" class="carousel slide my-5" data-bs-ride="carousel" aria-label="Additional Information Carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="images/carousel1.jpg" class="d-block w-100" alt="Campus Tour">
+            </div>
+            <div class="carousel-item">
+              <img src="images/carousel2.jpg" class="d-block w-100" alt="Student Life">
+            </div>
+            <div class="carousel-item">
+              <img src="images/carousel3.jpg" class="d-block w-100" alt="Research Facilities">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#infoCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#infoCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="text-center">
+            <a href="admissions.html" class="btn btn-primary btn-lg">Apply Now</a>
+        </div>
+    </main>
+
+    <!-- Chatbot Integration (Using Tidio) -->
+    <!-- Tidio Chatbot Integration -->
+    <script src="//code.tidio.co/YOUR_TIDIO_SCRIPT.js" async></script>
+
+    <!-- Footer (Same as other pages) -->
+    <footer class="bg-dark text-center text-lg-start text-white">
+        <div class="container p-4">
+          <div class="row">
+            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+              <h5 class="text-uppercase">Maestros University</h5>
+              <p>
+                Empowering students with knowledge and skills to excel in the modern world.
+              </p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+              <h5 class="text-uppercase">Quick Links</h5>
+              <ul class="list-unstyled quick-links">
+                <li><a href="admissions.html" class="text-white">Admissions</a></li>
+                <li><a href="courses.html" class="text-white">Courses</a></li>
+                <li><a href="faqs.html" class="text-white">FAQs</a></li>
+                <li><a href="student-portal.html" class="text-white">Student Portal</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+              <h5 class="text-uppercase">Follow Us</h5>
+              <a href="#" class="text-white me-4" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="text-white me-4" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="text-white me-4" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="text-white me-4" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2024 Maestros University. All rights reserved.
+        </div>
+      </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+      integrity="sha256-/xUj+3OJGbkCIgF2JaxZJ3AQ69NQ6xbgzHVRBozeyuU=" 
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+    <script src="js/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!-- public/apply.html -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Maestros University - Student Portal</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Font Awesome for Icons -->
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-pVjVdJg+kXjIHxFy1R72vufgq+VxF3YVtF7sV3HE7R7HzmCeZrMRo1oK3RXbVFGnDr3XaRg3Y6XU6p0Cq8Jm1w=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        />
+        <!-- Chart.js for Graphs -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+<body>
+    <!-- Navigation Bar (Same as other pages) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" aria-label="Main Navigation">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <img src="assets/images/LOGO.png" alt="Maestros University Logo" width="30" height="30" class="d-inline-block align-text-top">
+          Maestros University
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto me-3">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admissions.html">Admissions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="courses.html">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="faqs.html">FAQs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="student-portal.html">Student Portal</a>
+            </li>
+          </ul>
+          <form class="d-flex me-2" id="searchForm">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+          <button id="audioToggle" class="btn btn-secondary me-2" aria-label="Toggle Read-Aloud">
+              <i class="fas fa-play"></i> <i class="fas fa-volume-up"></i>
+          </button>
+          <button id="contrastToggle" class="btn btn-secondary" aria-label="Toggle Contrast Mode">
+              <i class="fas fa-adjust"></i> Contrast
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Application Form Section -->
+    <section class="application-form my-5">
+        <div class="container">
+            <h3 class="text-center mb-4">Application Form</h3>
+            <form id="applyForm" aria-label="Application Form">
+                <div class="row">
+                    <!-- Full Name -->
+                    <div class="col-md-6 mb-3">
+                        <label for="fullName" class="form-label">Full Name<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="fullName" required aria-required="true" placeholder="John Doe">
+                    </div>
+                    <!-- Email -->
+                    <div class="col-md-6 mb-3">
+                        <label for="email" class="form-label">Email<span class="text-danger">*</span></label>
+                        <input type="email" class="form-control" id="email" required aria-required="true" placeholder="john.doe@example.com">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="selectedCourse" class="form-label">Selected Course<span class="text-danger">*</span></label>
+                    <select class="form-select" id="selectedCourse" required aria-required="true">
+                        <option selected disabled>Choose a course</option>
+                        <option value="Data Science Fundamentals">Data Science Fundamentals</option>
+                        <option value="Machine Learning Advanced">Machine Learning Advanced</option>
+                        <option value="Natural Language Processing">Natural Language Processing</option>
+                        <option value="Computer Vision Essentials">Computer Vision Essentials</option>
+                        <option value="Deep Learning Mastery">Deep Learning Mastery</option>
+                        <!-- Add more courses as needed -->
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="resume" class="form-label">Upload Resume<span class="text-danger">*</span></label>
+                    <input class="form-control" type="file" id="resume" accept=".pdf,.doc,.docx" required aria-required="true">
+                </div>
+                <div class="mb-3">
+                    <label for="coverLetter" class="form-label">Cover Letter<span class="text-danger">*</span></label>
+                    <textarea class="form-control" id="coverLetter" rows="5" required aria-required="true" placeholder="Write your cover letter here..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Application</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Interactive Decision-Based Button -->
+    <section class="interactive-button my-5 text-center">
+        <button type="button" class="btn btn-warning btn-lg" data-bs-toggle="modal" data-bs-target="#decisionModal">
+            <i class="fas fa-question-circle"></i> Need More Information?
+        </button>
+    </section>
+
+    <!-- Decision Modal -->
+    <div class="modal fade" id="decisionModal" tabindex="-1" aria-labelledby="decisionModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="decisionModalLabel">Need More Information?</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="decisionForm">
+              <div class="mb-3">
+                <label class="form-label">Are you still not sure about applying?<span class="text-danger">*</span></label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="unsure" id="unsureYes" value="yes" required>
+                  <label class="form-check-label" for="unsureYes">
+                    Yes
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="unsure" id="unsureNo" value="no" required>
+                  <label class="form-check-label" for="unsureNo">
+                    No
+                  </label>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Are you happy with your current educational opportunities?<span class="text-danger">*</span></label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="happy" id="happyYes" value="yes" required>
+                  <label class="form-check-label" for="happyYes">
+                    Yes
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="happy" id="happyNo" value="no" required>
+                  <label class="form-check-label" for="happyNo">
+                    No
+                  </label>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chatbot Integration (Using Tidio) -->
+    <!-- Tidio Chatbot Integration -->
+    <script src="//code.tidio.co/YOUR_TIDIO_SCRIPT.js" async></script>
+
+    <!-- Footer (Same as other pages) -->
+    <footer class="bg-dark text-center text-lg-start text-white">
+        <div class="container p-4">
+          <div class="row">
+            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+              <h5 class="text-uppercase">Maestros University</h5>
+              <p>
+                Empowering students with knowledge and skills to excel in the modern world.
+              </p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+              <h5 class="text-uppercase">Quick Links</h5>
+              <ul class="list-unstyled quick-links">
+                <li><a href="admissions.html" class="text-white">Admissions</a></li>
+                <li><a href="courses.html" class="text-white">Courses</a></li>
+                <li><a href="faqs.html" class="text-white">FAQs</a></li>
+                <li><a href="student-portal.html" class="text-white">Student Portal</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+              <h5 class="text-uppercase">Follow Us</h5>
+              <a href="#" class="text-white me-4" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="text-white me-4" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="text-white me-4" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="text-white me-4" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2024 Maestros University. All rights reserved.
+        </div>
+      </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+      integrity="sha256-/xUj+3OJGbkCIgF2JaxZJ3AQ69NQ6xbgzHVRBozeyuU=" 
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+    <script src="js/search.js"></script>
+</body>
+</html>
