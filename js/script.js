@@ -223,9 +223,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /*-----------------------*/
-    /* 6. Dashboard Handling */
+    /* 6. Virtual Tour Handling */
     /*-----------------------*/
 
-    // If you have a dashboard page, include logic here to protect it
-    // This script assumes that the dashboard is a separate HTML file
+    // Assuming cursor-listener.js handles hotspot interactions
+
 });
