@@ -18,6 +18,36 @@
 </head>
 <body>
     <!-- Navigation Bar -->
+  <!-- Updated Advanced Search Form -->
+          <form class="d-flex me-2 align-items-center position-relative" id="searchForm" aria-label="Advanced Search Form">
+            <!-- Text Input with Search Icon -->
+            <div class="input-group">
+              <input 
+                class="form-control me-2" 
+                type="text" 
+                placeholder="Search for courses..." 
+                aria-label="Search for courses" 
+                id="searchQuery"
+              >
+              <button class="btn btn-outline-success" type="submit" aria-label="Submit Search">
+                <img src="images/search-icon.png" alt="Search" style="width: 20px; height: 20px;">
+              </button>
+            </div>
+            
+            <!-- Voice Search Button -->
+            <button type="button" id="voiceSearchBtn" class="btn btn-outline-secondary me-2" aria-label="Voice Search">
+              <img src="images/voice-icon.png" alt="Voice Search" style="width: 20px; height: 20px;">
+            </button>
+            
+            <!-- Upload Button -->
+            <label for="uploadInput" class="btn btn-outline-secondary me-2 mb-0" aria-label="Upload Search File" style="cursor: pointer;">
+              <img src="images/upload-icon.png" alt="Upload" style="width: 20px; height: 20px;">
+            </label>
+            <input type="file" id="uploadInput" style="display: none;" accept=".jpg,.jpeg,.png,.pdf" aria-label="Upload Search File">
+          </form>
+
+
+    
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" aria-label="Main Navigation">
       <div class="container-fluid">
         <a class="navbar-brand" href="index.html">
@@ -67,33 +97,7 @@
           <button id="contrastToggle" class="btn btn-secondary" aria-label="Toggle Contrast Mode">
               <i class="fas fa-adjust"></i> Contrast
           </button>
-             <!-- Updated Advanced Search Form -->
-          <form class="d-flex me-2 align-items-center position-relative" id="searchForm" aria-label="Advanced Search Form">
-            <!-- Text Input with Search Icon -->
-            <div class="input-group">
-              <input 
-                class="form-control me-2" 
-                type="text" 
-                placeholder="Search for courses..." 
-                aria-label="Search for courses" 
-                id="searchQuery"
-              >
-              <button class="btn btn-outline-success" type="submit" aria-label="Submit Search">
-                <img src="images/search-icon.png" alt="Search" style="width: 20px; height: 20px;">
-              </button>
-            </div>
-            
-            <!-- Voice Search Button -->
-            <button type="button" id="voiceSearchBtn" class="btn btn-outline-secondary me-2" aria-label="Voice Search">
-              <img src="images/voice-icon.png" alt="Voice Search" style="width: 20px; height: 20px;">
-            </button>
-            
-            <!-- Upload Button -->
-            <label for="uploadInput" class="btn btn-outline-secondary me-2 mb-0" aria-label="Upload Search File" style="cursor: pointer;">
-              <img src="images/upload-icon.png" alt="Upload" style="width: 20px; height: 20px;">
-            </label>
-            <input type="file" id="uploadInput" style="display: none;" accept=".jpg,.jpeg,.png,.pdf" aria-label="Upload Search File">
-          </form>
+           
         </div>
       </div>
     </nav>
