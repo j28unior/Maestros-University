@@ -96,7 +96,60 @@
         </div>
       </div>
     </nav>
-
+    
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" aria-label="Hero Carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="images/hero1.jpg" class="d-block w-100" alt="Campus Image 1">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Welcome to Maestros University</h5>
+                <p>Empowering Future Leaders</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="images/hero2.jpg" class="d-block w-100" alt="Campus Image 2">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Innovative Learning Environment</h5>
+                <p>Join Us Today</p>
+              </div>
+            </div>
+            <!-- Add more carousel items as needed -->
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+    </header>
+    
+    <!-- Announcements Section -->
+    <section class="announcements my-5">
+        <div class="container">
+            <h2>Latest Announcements</h2>
+            <div id="announcementCarousel" class="carousel slide" data-bs-ride="carousel" aria-label="Announcements Carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="alert alert-info" role="alert">
+                    Admission deadlines for academic year 2024 extended to June 30th.
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="alert alert-success" role="alert">
+                    New AI-driven facilities inaugurated on campus.
+                  </div>
+                </div>
+                <!-- Add more announcement items as needed -->
+              </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Virtual Tour Section -->
     <section class="virtual-tour my-5">
         <div class="container">
@@ -105,7 +158,7 @@
                 <a-scene embedded>
                     <!-- Sky for initial panorama -->
                     <a-sky id="sky" src="images/main-hall.jpg" rotation="0 -130 0"></a-sky>
-
+    
                     <!-- Hotspot 1: Library -->
                     <a-entity 
                         geometry="primitive: sphere; radius: 0.5" 
@@ -115,7 +168,7 @@
                         cursor-listener
                         hotspot="target: library; title: Library"
                     ></a-entity>
-
+    
                     <!-- Hotspot 2: Laboratory -->
                     <a-entity 
                         geometry="primitive: sphere; radius: 0.5" 
@@ -125,7 +178,7 @@
                         cursor-listener
                         hotspot="target: laboratory; title: Laboratory"
                     ></a-entity>
-
+    
                     <!-- Hotspot 3: Cafeteria -->
                     <a-entity 
                         geometry="primitive: sphere; radius: 0.5" 
@@ -135,7 +188,7 @@
                         cursor-listener
                         hotspot="target: cafeteria; title: Cafeteria"
                     ></a-entity>
-
+    
                     <!-- Hotspot 4: Auditorium -->
                     <a-entity 
                         geometry="primitive: sphere; radius: 0.5" 
@@ -145,34 +198,122 @@
                         cursor-listener
                         hotspot="target: auditorium; title: Auditorium"
                     ></a-entity>
-
+    
                     <!-- Add more hotspots as needed -->
-
+    
                     <!-- Camera -->
                     <a-entity id="camera" camera look-controls wasd-controls position="0 1.6 0"></a-entity>
                 </a-scene>
             </div>
         </div>
     </section>
-
-    <!-- Team Members Section -->
-    <section class="team-members my-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Meet Our Team</h2>
-            <div class="row">
-                <!-- Team Member 1 -->
-                <div class="col-md-3 mb-4">
-                  <div class="card team-member text-center h-100" data-bs-toggle="tooltip" data-bs-placement="top" title="Greetings! I'm Innocent Sekele, your guide to the Computer Science Department.">
-                      <img src="images/innocent.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Innocent Sekele" style="width: 100px; height: 100px; object-fit: cover;">
+    
+    <!-- Main Content -->
+    <main class="container mt-5 pt-5">
+        <div class="row">
+            <div class="col-md-8">
+                <h1>Welcome to Maestros University</h1>
+                <p>At Maestros University, we empower students with the knowledge and skills needed to excel in the modern world. Our diverse range of courses, experienced faculty, and state-of-the-art facilities ensure a comprehensive educational experience.</p>
+                <a href="admissions.html" class="btn btn-primary">Apply Now</a>
+            </div>
+            <div class="col-md-4">
+                <!-- Add an image or carousel here -->
+                <img src="images/Haward.jpg" alt="Maestros University Campus" class="img-fluid rounded">
+            </div>
+        </div>
+    
+        <!-- Hot Courses/AI Trends Section -->
+        <section class="hot-courses my-5">
+            <div class="container">
+                <h2 class="text-center mb-4">Trending Courses in AI</h2>
+                <div class="row">
+                    <!-- Course Box 1 -->
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="card h-100">
+                            <img src="images/ai_trend1.jpeg" class="card-img-top" alt="AI Trend 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Machine Learning</h5>
+                                <p class="card-text">Dive into algorithms that enable computers to learn from data.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Course Box 2 -->
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="card h-100">
+                            <img src="images/ai_trend2.jpg" class="card-img-top" alt="AI Trend 2">
+                            <div class="card-body">
+                                <h5 class="card-title">Natural Language Processing</h5>
+                                <p class="card-text">Explore how machines understand and interpret human language.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Course Box 3 -->
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="card h-100">
+                            <img src="images/ai_trend3.jpg" class="card-img-top" alt="AI Trend 3">
+                            <div class="card-body">
+                                <h5 class="card-title">Computer Vision</h5>
+                                <p class="card-text">Learn how computers gain high-level understanding from digital images.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Course Box 4 -->
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="card h-100">
+                            <img src="images/ai_trend4.jpg" class="card-img-top" alt="AI Trend 4">
+                            <div class="card-body">
+                                <h5 class="card-title">Deep Learning</h5>
+                                <p class="card-text">Study advanced neural network architectures for complex tasks.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Interest Form Section -->
+        <section class="course-prediction my-5">
+            <div class="container">
+                <h3 class="text-center mb-4">Find Your Perfect AI Course</h3>
+                <form id="interestForm" aria-label="Interest Form">
+                    <div class="mb-3">
+                        <label for="interestInput" class="form-label">Enter Your Interest:</label>
+                        <input type="text" class="form-control" id="interestInput" placeholder="e.g., Data Analysis" required aria-required="true">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Predict Course</button>
+                </form>
+                <!-- Predicted Course Display -->
+                <div id="predictedCourse" class="mt-4" style="display: none;">
+                    <h4>Your Recommended Course:</h4>
+                    <p id="courseName"></p>
+                    <button id="applyButton" class="btn btn-success">Apply</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Chatbot Integration (Using Tidio) -->
+    <!-- Tidio Chatbot Integration -->
+    <script src="//code.tidio.co/YOUR_TIDIO_SCRIPT.js" async></script>
+    
+    <!-- About the Team Section -->
+    <section class="about-team my-5">
+      <div class="container">
+          <h2 class="text-center mb-4">Meet Our Team</h2>
+          <div class="row">
+              <!-- Team Member 1 -->
+              <div class="col-md-3 mb-4">
+                  <div class="card team-member text-center h-100" data-bs-toggle="tooltip" data-bs-placement="top" title="Hello! I'm Innocent Manganyi, welcoming you to the Computer Science Department.">
+                      <img src="images/innocent.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Innocent Manganyi" style="width: 100px; height: 100px; object-fit: cover;">
                       <div class="card-body">
-                          <h5 class="card-title">Innocent Sekele</h5>
-                          <p class="card-text">Head of Computer Science</p>
+                          <h5 class="card-title">Innocent Manganyi</h5>
+                          <p class="card-text">Dean of Computer Science</p>
                           <p class="card-text text-muted">Computer Science Department</p>
                       </div>
                   </div>
-                </div>
-                <!-- Team Member 2 -->
-                <div class="col-md-3 mb-4">
+              </div>
+              <!-- Team Member 2 -->
+              <div class="col-md-3 mb-4">
                   <div class="card team-member text-center h-100" data-bs-toggle="tooltip" data-bs-placement="top" title="Greetings! I'm Bavumile Cele, here to guide you through the Information Technology Faculty.">
                       <img src="images/bavumile.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Bavumile Cele" style="width: 100px; height: 100px; object-fit: cover;">
                       <div class="card-body">
@@ -181,9 +322,9 @@
                           <p class="card-text text-muted">Information Technology Faculty</p>
                       </div>
                   </div>
-                </div>
-                <!-- Team Member 3 -->
-                <div class="col-md-3 mb-4">
+              </div>
+              <!-- Team Member 3 -->
+              <div class="col-md-3 mb-4">
                   <div class="card team-member text-center h-100" data-bs-toggle="tooltip" data-bs-placement="top" title="Hi! I'm Patric Zungu, your contact for the Engineering Department.">
                       <img src="images/patric.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Patric Zungu" style="width: 100px; height: 100px; object-fit: cover;">
                       <div class="card-body">
@@ -192,9 +333,9 @@
                           <p class="card-text text-muted">Engineering Department</p>
                       </div>
                   </div>
-                </div>
-                <!-- Team Member 4 -->
-                <div class="col-md-3 mb-4">
+              </div>
+              <!-- Team Member 4 -->
+              <div class="col-md-3 mb-4">
                   <div class="card team-member text-center h-100" data-bs-toggle="tooltip" data-bs-placement="top" title="Welcome! I'm Sibonelo Masondo, here to support the Business Studies Faculty.">
                       <img src="images/sibonelo.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Sibonelo Masondo" style="width: 100px; height: 100px; object-fit: cover;">
                       <div class="card-body">
@@ -203,22 +344,22 @@
                           <p class="card-text text-muted">Business Studies Faculty</p>
                       </div>
                   </div>
-                </div>
-                <!-- Team Member 5 -->
-                <div class="col-md-3 mb-4">
-                  <div class="card team-member text-center h-100" data-bs-toggle="tooltip" data-bs-placement="top" title="Welcome! I'm Monwabisa Sibiya, Maestros is here to serve you.">
-                      <img src="images/monwabisa.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Monwabisa Sibiya" style="width: 100px; height: 100px; object-fit: cover;">
-                      <div class="card-body">
-                          <h5 class="card-title">Monwabisa Sibiya</h5>
-                          <p class="card-text">Lead Project Manager</p>
-                          <p class="card-text text-muted">Maestros University</p>
-                      </div>
-                  </div>
+              </div>
+              <!-- Team Member 5 -->
+              <div class="col-md-3 mb-4">
+                <div class="card team-member text-center h-100" data-bs-toggle="tooltip" data-bs-placement="top" title="Welcome! I'm Monwabisa Sibiya, Maetros is here to serve you.">
+                    <img src="images/monwabisa.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Monwabisa Sibiya" style="width: 100px; height: 100px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">Monwabisa Sibiya</h5>
+                        <p class="card-text">Lead Project Manager</p>
+                        <p class="card-text text-muted">Maestros University</p>
+                    </div>
                 </div>
             </div>
-        </div>
+          </div>
+      </div>
     </section>
-
+    
     <!-- User Feedback Section -->
     <section class="user-feedback my-5">
       <div class="container">
@@ -303,23 +444,7 @@
           </div>
       </div>
     </section>
-
-    <!-- Chat Feature -->
-    <!-- Replace the below code with your preferred chat widget code -->
-    <!-- Example using Tawk.to (Free Live Chat) -->
-    <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/YOUR_PROPERTY_ID/default';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-    </script>
-    <!-- End of Chat Feature -->
-
+    
     <!-- Footer -->
     <footer class="bg-dark text-center text-lg-start text-white">
         <div class="container p-4">
@@ -354,7 +479,7 @@
           © 2024 Maestros University. All rights reserved.
         </div>
       </footer>
-
+    
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
       integrity="sha256-/xUj+3OJGbkCIgF2JaxZJ3AQ69NQ6xbgzHVRBozeyuU=" 
