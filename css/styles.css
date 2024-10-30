@@ -235,3 +235,74 @@ body {
         margin-top: 10px;
     }
 }
+
+/* public/css/styles.css */
+
+/* [Existing CSS Content] */
+
+/* Digital Certificate Verification Section */
+.digital-certification {
+    background-color: #f0f8ff; /* Alice Blue background for distinction */
+    padding: 40px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add a decorative element (e.g., subtle animation or shape) */
+.digital-certification::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 100px;
+    height: 100px;
+    background: rgba(13, 110, 253, 0.2); /* Bootstrap primary color with transparency */
+    border-radius: 50%;
+    animation: float 6s infinite ease-in-out;
+}
+
+.digital-certification::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 100px;
+    height: 100px;
+    background: rgba(13, 110, 253, 0.2);
+    border-radius: 50%;
+    animation: float 6s infinite ease-in-out reverse;
+}
+
+/* Keyframes for floating animation */
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+    100% {
+        transform: translateY(0) rotate(360deg);
+    }
+}
+
+/* Verification Message Styles */
+#verificationMessage {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .digital-certification {
+        padding: 20px 0;
+    }
+}
+
