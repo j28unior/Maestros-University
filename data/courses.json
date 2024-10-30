@@ -1,0 +1,19 @@
+[
+    {
+        "title": "Machine Learning",
+        "department": "Computer Science",
+        "level": "Undergraduate",
+        "type": "Full-Time",
+        "description": "An in-depth course on machine learning algorithms and applications.",
+        "image": "images/ai_trend1.jpeg"
+    },
+    {
+        "title": "Natural Language Processing",
+        "department": "Computer Science",
+        "level": "Graduate",
+        "type": "Part-Time",
+        "description": "Study of computational techniques for analyzing and synthesizing natural language.",
+        "image": "images/ai_trend2.jpg"
+    }
+ 
+]
