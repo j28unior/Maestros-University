@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" 
       integrity="sha512-Fo3rlrZj/k7ujTTXRN+lFeufBk0ixH8Wj7kDWTKUXcV6YQk9x6ZcME6sRYq3IsY0jG0H3lrE6GhL77VURKCw7A==" 
       crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- A-Frame for Virtual Tour -->
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -31,23 +33,38 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="index.html">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="admissions.html">Admissions</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="courses.html">Courses</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="faqs.html">FAQs</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="student-login.html">Student Portal</a>
-            </li>
+            <!-- Add other nav items as needed -->
           </ul>
-          <form class="d-flex me-2" id="searchForm">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+          <!-- Updated Advanced Search Form -->
+          <form class="d-flex me-2 align-items-center position-relative" id="searchForm" aria-label="Advanced Search Form">
+            <!-- Text Input with Search Icon -->
+            <div class="input-group">
+              <input 
+                class="form-control me-2" 
+                type="text" 
+                placeholder="Search for courses..." 
+                aria-label="Search for courses" 
+                id="searchQuery"
+              >
+              <button class="btn btn-outline-success" type="submit" aria-label="Submit Search">
+                <img src="images/Untitled.png" alt="Search" style="width: 20px; height: 20px;">
+              </button>
+            </div>
+            
+            <!-- Voice Search Button -->
+            <button type="button" id="voiceSearchBtn" class="btn btn-outline-secondary me-2" aria-label="Voice Search">
+              <img src="images/voice-icon.png" alt="Voice Search" style="width: 20px; height: 20px;">
+            </button>
+            
+            <!-- Upload Button -->
+            <label for="uploadInput" class="btn btn-outline-secondary me-2 mb-0" aria-label="Upload Search File" style="cursor: pointer;">
+              <img src="images/upload-icon.png" alt="Upload" style="width: 20px; height: 20px;">
+            </label>
+            <input type="file" id="uploadInput" style="display: none;" accept=".jpg,.jpeg,.png,.pdf" aria-label="Upload Search File">
+
           </form>
+          
+          <!-- Read-Aloud and Contrast Toggle Buttons -->
           <button id="audioToggle" class="btn btn-secondary me-2 d-flex align-items-center" aria-label="Toggle Read-Aloud">
             <!-- Play Icon SVG -->
             <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill me-2" viewBox="0 0 16 16">
@@ -61,16 +78,14 @@
             
             <!-- Small Play Icon Image -->
             <img src="images/play.jpg" alt="Play Icon" class="ms-2" style="width: 16px; height: 16px;">
-        </button>
-        
+          </button>
+          
           <button id="contrastToggle" class="btn btn-secondary" aria-label="Toggle Contrast Mode">
               <i class="fas fa-adjust"></i> Contrast
           </button>
         </div>
       </div>
-    </nav>
-
-    <!-- Hero Section -->
+    </nav>    <!-- Hero Section -->
     <header class="hero-section">
         <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" aria-label="Hero Carousel">
           <div class="carousel-inner">
@@ -119,6 +134,64 @@
                 </div>
                 <!-- Add more announcement items as needed -->
               </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Virtual Tour Section -->
+    <section class="virtual-tour my-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Virtual Tour</h2>
+            <div class="virtual-tour-container">
+                <a-scene embedded>
+                    <!-- Sky for initial panorama -->
+                    <a-sky id="sky" src="images/main-hall.jpg" rotation="0 -130 0"></a-sky>
+
+                    <!-- Hotspot 1: Library -->
+                    <a-entity 
+                        geometry="primitive: sphere; radius: 0.5" 
+                        material="color: #FF0000; opacity: 0.6"
+                        position="-10 2 -20"
+                        look-at="#camera"
+                        cursor-listener
+                        hotspot="target: library; title: Library"
+                    ></a-entity>
+
+                    <!-- Hotspot 2: Laboratory -->
+                    <a-entity 
+                        geometry="primitive: sphere; radius: 0.5" 
+                        material="color: #00FF00; opacity: 0.6"
+                        position="15 2 -25"
+                        look-at="#camera"
+                        cursor-listener
+                        hotspot="target: laboratory; title: Laboratory"
+                    ></a-entity>
+
+                    <!-- Hotspot 3: Cafeteria -->
+                    <a-entity 
+                        geometry="primitive: sphere; radius: 0.5" 
+                        material="color: #0000FF; opacity: 0.6"
+                        position="0 2 -30"
+                        look-at="#camera"
+                        cursor-listener
+                        hotspot="target: cafeteria; title: Cafeteria"
+                    ></a-entity>
+
+                    <!-- Hotspot 4: Auditorium -->
+                    <a-entity 
+                        geometry="primitive: sphere; radius: 0.5" 
+                        material="color: #FFA500; opacity: 0.6"
+                        position="-20 2 -15"
+                        look-at="#camera"
+                        cursor-listener
+                        hotspot="target: auditorium; title: Auditorium"
+                    ></a-entity>
+
+                    <!-- Add more hotspots as needed -->
+
+                    <!-- Camera -->
+                    <a-entity id="camera" camera look-controls wasd-controls position="0 1.6 0"></a-entity>
+                </a-scene>
             </div>
         </div>
     </section>
@@ -207,91 +280,287 @@
         </section>
     </main>
 
-    
+    <!-- Chatbot Integration (Using Tidio) -->
     <!-- Tidio Chatbot Integration -->
-    <script src="//code.tidio.co/t1wbnhubzx1i6jkwzfn3n5forr2kt9iu.js" async></script>
+    <script src="//code.tidio.co/YOUR_TIDIO_SCRIPT.js" async></script>
 
-
-<!-- About the Team Section -->
-<section class="about-team my-5">
-  <div class="container">
-      <h2 class="text-center mb-4">Meet Our Team</h2>
-      <div class="row">
-          <!-- Team Member 1 -->
-          <div class="col-md-3 mb-4">
-              <div class="card team-member text-center h-100" data-bs-toggle="tooltip" data-bs-placement="top" title="Hello! I'm Innocent Manganyi, welcoming you to the Computer Science Department.">
-                  <img src="assets/images/innocent.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Innocent Manganyi" style="width: 100px; height: 100px; object-fit: cover;">
-                  <div class="card-body">
-                      <h5 class="card-title">Innocent Manganyi</h5>
-                      <p class="card-text">Dean of Computer Science</p>
-                      <p class="card-text text-muted">Computer Science Department</p>
+    <!-- About the Team Section -->
+    <section class="about-team my-5">
+      <div class="container">
+          <h2 class="text-center mb-4">Meet Our Team</h2>
+          <div class="row">
+              <!-- Team Member 1 -->
+              <div class="col-md-3 mb-4">
+                  <div class="card team-member text-center h-100" data-bs-toggle="tooltip" data-bs-placement="top" title="Hello! I'm Innocent Manganyi, welcoming you to the Computer Science Department.">
+                      <img src="assets/images/innocent.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Innocent Manganyi" style="width: 100px; height: 100px; object-fit: cover;">
+                      <div class="card-body">
+                          <h5 class="card-title">Innocent Manganyi</h5>
+                          <p class="card-text">Dean of Computer Science</p>
+                          <p class="card-text text-muted">Computer Science Department</p>
+                      </div>
                   </div>
               </div>
-          </div>
-          <!-- Team Member 2 -->
-          <div class="col-md-3 mb-4">
-              <div class="card team-member text-center h-100" data-bs-toggle="tooltip" data-bs-placement="top" title="Greetings! I'm Bavumile Cele, here to guide you through the Information Technology Faculty.">
-                  <img src="assets/images/bavumile.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Bavumile Cele" style="width: 100px; height: 100px; object-fit: cover;">
-                  <div class="card-body">
-                      <h5 class="card-title">Bavumile Cele</h5>
-                      <p class="card-text">Head of Information Technology</p>
-                      <p class="card-text text-muted">Information Technology Faculty</p>
+              <!-- Team Member 2 -->
+              <div class="col-md-3 mb-4">
+                  <div class="card team-member text-center h-100" data-bs-toggle="tooltip" data-bs-placement="top" title="Greetings! I'm Bavumile Cele, here to guide you through the Information Technology Faculty.">
+                      <img src="assets/images/bavumile.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Bavumile Cele" style="width: 100px; height: 100px; object-fit: cover;">
+                      <div class="card-body">
+                          <h5 class="card-title">Bavumile Cele</h5>
+                          <p class="card-text">Head of Information Technology</p>
+                          <p class="card-text text-muted">Information Technology Faculty</p>
+                      </div>
                   </div>
               </div>
-          </div>
-          <!-- Team Member 3 -->
-          <div class="col-md-3 mb-4">
-              <div class="card team-member text-center h-100" data-bs-toggle="tooltip" data-bs-placement="top" title="Hi! I'm Patric Zungu, your contact for the Engineering Department.">
-                  <img src="assets/images/patric.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Patric Zungu" style="width: 100px; height: 100px; object-fit: cover;">
-                  <div class="card-body">
-                      <h5 class="card-title">Patric Zungu</h5>
-                      <p class="card-text">Coordinator of Engineering</p>
-                      <p class="card-text text-muted">Engineering Department</p>
+              <!-- Team Member 3 -->
+              <div class="col-md-3 mb-4">
+                  <div class="card team-member text-center h-100" data-bs-toggle="tooltip" data-bs-placement="top" title="Hi! I'm Patric Zungu, your contact for the Engineering Department.">
+                      <img src="assets/images/patric.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Patric Zungu" style="width: 100px; height: 100px; object-fit: cover;">
+                      <div class="card-body">
+                          <h5 class="card-title">Patric Zungu</h5>
+                          <p class="card-text">Coordinator of Engineering</p>
+                          <p class="card-text text-muted">Engineering Department</p>
+                      </div>
                   </div>
               </div>
-          </div>
-          <!-- Team Member 4 -->
-          <div class="col-md-3 mb-4">
-              <div class="card team-member text-center h-100" data-bs-toggle="tooltip" data-bs-placement="top" title="Welcome! I'm Sibonelo Masondo, here to support the Business Studies Faculty.">
-                  <img src="assets/images/sibonelo.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Sibonelo Masondo" style="width: 100px; height: 100px; object-fit: cover;">
-                  <div class="card-body">
-                      <h5 class="card-title">Sibonelo Masondo</h5>
-                      <p class="card-text">Director of Business Studies</p>
-                      <p class="card-text text-muted">Business Studies Faculty</p>
+              <!-- Team Member 4 -->
+              <div class="col-md-3 mb-4">
+                  <div class="card team-member text-center h-100" data-bs-toggle="tooltip" data-bs-placement="top" title="Welcome! I'm Sibonelo Masondo, here to support the Business Studies Faculty.">
+                      <img src="assets/images/sibonelo.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Sibonelo Masondo" style="width: 100px; height: 100px; object-fit: cover;">
+                      <div class="card-body">
+                          <h5 class="card-title">Sibonelo Masondo</h5>
+                          <p class="card-text">Director of Business Studies</p>
+                          <p class="card-text text-muted">Business Studies Faculty</p>
+                      </div>
                   </div>
               </div>
-          </div>
-          <!-- Team Member 5 -->
-          <div class="col-md-3 mb-4">
-            <div class="card team-member text-center h-100" data-bs-toggle="tooltip" data-bs-placement="top" title="Welcome! I'm Monwabisa Sibiya, Maetros is here to serve you.">
-                <img src="assets/images/sibonelo.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Sibonelo Masondo" style="width: 100px; height: 100px; object-fit: cover;">
-                <div class="card-body">
-                    <h5 class="card-title">Monwabisa Sibiya</h5>
-                    <p class="card-text">Lead Project Manager</p>
-                    <p class="card-text text-muted">Maetros University</p>
+              <!-- Team Member 5 -->
+              <div class="col-md-3 mb-4">
+                <div class="card team-member text-center h-100" data-bs-toggle="tooltip" data-bs-placement="top" title="Welcome! I'm Monwabisa Sibiya, Maetros is here to serve you.">
+                    <img src="assets/images/monwabisa.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Monwabisa Sibiya" style="width: 100px; height: 100px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">Monwabisa Sibiya</h5>
+                        <p class="card-text">Lead Project Manager</p>
+                        <p class="card-text text-muted">Maestros University</p>
+                    </div>
                 </div>
             </div>
-        </div>
+          </div>
       </div>
-  </div>
-</section>
+    </section>
 
 
-
+    <!-- User Feedback Section -->
+    <section class="user-feedback my-5">
+      <div class="container">
+          <h2 class="text-center mb-4">What Our Students Say</h2>
+          <!-- Carousel for Reviews -->
+          <div id="reviewsCarousel" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                  <!-- Review 1 -->
+                  <div class="carousel-item active">
+                      <div class="d-flex justify-content-center">
+                          <div class="card text-center" style="width: 18rem;">
+                              <div class="card-body">
+                                  <h5 class="card-title">Jane Doe</h5>
+                                  <h6 class="card-subtitle mb-2 text-muted">Computer Science</h6>
+                                  <p class="card-text">"Maestros University provided me with the best education and resources to excel in my career."</p>
+                                  <p class="card-text">
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star-half-alt text-warning"></i>
+                                  </p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- Review 2 -->
+                  <div class="carousel-item">
+                      <div class="d-flex justify-content-center">
+                          <div class="card text-center" style="width: 18rem;">
+                              <div class="card-body">
+                                  <h5 class="card-title">John Smith</h5>
+                                  <h6 class="card-subtitle mb-2 text-muted">Information Technology</h6>
+                                  <p class="card-text">"The faculty members are highly knowledgeable and always ready to help."</p>
+                                  <p class="card-text">
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                  </p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- Review 3 -->
+                  <div class="carousel-item">
+                      <div class="d-flex justify-content-center">
+                          <div class="card text-center" style="width: 18rem;">
+                              <div class="card-body">
+                                  <h5 class="card-title">Alice Johnson</h5>
+                                  <h6 class="card-subtitle mb-2 text-muted">Engineering</h6>
+                                  <p class="card-text">"The campus facilities are top-notch, providing a conducive environment for learning."</p>
+                                  <p class="card-text">
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star-half-alt text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                  </p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- Review 4 -->
+                  <div class="carousel-item">
+                      <div class="d-flex justify-content-center">
+                          <div class="card text-center" style="width: 18rem;">
+                              <div class="card-body">
+                                  <h5 class="card-title">Michael Brown</h5>
+                                  <h6 class="card-subtitle mb-2 text-muted">Business Studies</h6>
+                                  <p class="card-text">"The practical approach to teaching has prepared me well for the business world."</p>
+                                  <p class="card-text">
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                  </p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- Review 5 -->
+                  <div class="carousel-item">
+                      <div class="d-flex justify-content-center">
+                          <div class="card text-center" style="width: 18rem;">
+                              <div class="card-body">
+                                  <h5 class="card-title">Sizwe Zulu</h5>
+                                  <h6 class="card-subtitle mb-2 text-muted">Mathematics</h6>
+                                  <p class="card-text">"The interactive classes and supportive staff made my learning experience exceptional."</p>
+                                  <p class="card-text">
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star-half-alt text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                  </p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- Review 6 -->
+                  <div class="carousel-item">
+                      <div class="d-flex justify-content-center">
+                          <div class="card text-center" style="width: 18rem;">
+                              <div class="card-body">
+                                  <h5 class="card-title">Lucas Makhuku</h5>
+                                  <h6 class="card-subtitle mb-2 text-muted">Physics</h6>
+                                  <p class="card-text">"Engaging lectures and hands-on experiments enriched my understanding of complex concepts."</p>
+                                  <p class="card-text">
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star-half-alt text-warning"></i>
+                                  </p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- Review 7 -->
+                  <div class="carousel-item">
+                      <div class="d-flex justify-content-center">
+                          <div class="card text-center" style="width: 18rem;">
+                              <div class="card-body">
+                                  <h5 class="card-title">Sophia Martinez</h5>
+                                  <h6 class="card-subtitle mb-2 text-muted">Chemistry</h6>
+                                  <p class="card-text">"The collaborative projects and research opportunities were invaluable for my career."</p>
+                                  <p class="card-text">
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star-half-alt text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                  </p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- Review 8 -->
+                  <div class="carousel-item">
+                      <div class="d-flex justify-content-center">
+                          <div class="card text-center" style="width: 18rem;">
+                              <div class="card-body">
+                                  <h5 class="card-title">Daniel Lee</h5>
+                                  <h6 class="card-subtitle mb-2 text-muted">Economics</h6>
+                                  <p class="card-text">"Maestros University's focus on real-world applications helped me transition smoothly into the workforce."</p>
+                                  <p class="card-text">
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star-half-alt text-warning"></i>
+                                  </p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!-- Carousel Controls -->
+              <button class="carousel-control-prev" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+              </button>
+          </div>
+          <!-- Feedback Form -->
+          <div class="mt-5">
+              <h3 class="text-center mb-4">We Value Your Feedback</h3>
+              <form id="feedbackForm" class="row g-3" aria-label="Feedback Form">
+                  <div class="col-md-6">
+                      <label for="feedbackName" class="form-label">Name</label>
+                      <input type="text" class="form-control" id="feedbackName" placeholder="Your Name" required aria-required="true">
+                  </div>
+                  <div class="col-md-6">
+                      <label for="feedbackEmail" class="form-label">Email</label>
+                      <input type="email" class="form-control" id="feedbackEmail" placeholder="you@example.com" required aria-required="true">
+                  </div>
+                  <div class="col-12">
+                      <label for="feedbackMessage" class="form-label">Your Feedback</label>
+                      <textarea class="form-control" id="feedbackMessage" rows="3" placeholder="Share your thoughts about our website..." required aria-required="true"></textarea>
+                  </div>
+                  <div class="col-12 text-center">
+                      <button type="submit" class="btn btn-success">Submit Feedback</button>
+                  </div>
+              </form>
+              <!-- Feedback Submission Confirmation -->
+              <div id="feedbackConfirmation" class="mt-3 text-center text-success d-none">
+                  Thank you for your feedback!
+              </div>
+          </div>
+      </div>
+    </section>
 
     <!-- Footer -->
     <footer class="bg-dark text-center text-lg-start text-white">
         <div class="container p-4">
+          <!-- Footer Content -->
           <div class="row">
             <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
               <h5 class="text-uppercase">Maestros University</h5>
               <p>
-                Empowering students with knowledge and skills to excel in the modern world.
+                Leading the way in education with a focus on excellence and innovation.
               </p>
             </div>
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
               <h5 class="text-uppercase">Quick Links</h5>
-              <ul class="list-unstyled quick-links">
+              <ul class="list-unstyled mb-0">
                 <li><a href="admissions.html" class="text-white">Admissions</a></li>
                 <li><a href="courses.html" class="text-white">Courses</a></li>
                 <li><a href="faqs.html" class="text-white">FAQs</a></li>
@@ -299,11 +568,12 @@
               </ul>
             </div>
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-              <h5 class="text-uppercase">Follow Us</h5>
-              <a href="#" class="text-white me-4" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="text-white me-4" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-              <a href="#" class="text-white me-4" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-              <a href="#" class="text-white me-4" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <h5 class="text-uppercase">Contact Us</h5>
+              <ul class="list-unstyled mb-0">
+                <li><i class="fas fa-map-marker-alt me-2"></i>123 University Ave, City, Country</li>
+                <li><i class="fas fa-phone me-2"></i>+1 (234) 567-890</li>
+                <li><i class="fas fa-envelope me-2"></i>info@maestrosuniversity.edu</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -318,6 +588,7 @@
       crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
+    <script src="js/cursor-listener.js"></script> <!-- Added for Virtual Tour Hotspot Functionality -->
     <script src="js/script.js"></script>
     <script src="js/search.js"></script>
 </body>
