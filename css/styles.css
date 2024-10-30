@@ -1,426 +1,227 @@
 /* public/css/styles.css */
 
-/* Root Variables for Consistency */
-:root {
-    --primary-color: #007bff;
-    --secondary-color: #6c757d;
-    --font-family: 'Roboto', sans-serif;
-    --transition-speed: 0.3s;
-}
-
 /* Global Styles */
 body {
-    font-family: var(--font-family);
-    color: #333;
-    background-color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    padding-top: 70px; /* To prevent content from hiding behind fixed navbar */
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
+/* Navbar Styling */
+.navbar-brand img {
+    width: 30px;
+    height: 30px;
 }
 
-a:hover {
-    text-decoration: underline;
+/* Search Form Enhancements */
+#searchForm {
+    position: relative;
 }
 
-.navbar, footer {
-    background-color: var(--primary-color);
-    color: #fff;
+#searchForm .input-group .form-control {
+    border-radius: 0.25rem 0 0 0.25rem;
 }
 
-.navbar a, footer a {
-    color: #fff;
+#searchForm .input-group .btn {
+    border-radius: 0 0.25rem 0.25rem 0;
 }
 
-.navbar a:hover, footer a:hover {
-    color: #dcdcdc;
-}
-
-.btn-secondary {
+#searchForm .btn-outline-secondary,
+#searchForm .btn-outline-success {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.btn-secondary i {
-    margin-right: 5px;
+#searchForm .btn-outline-secondary img,
+#searchForm .btn-outline-success img {
+    width: 20px;
+    height: 20px;
 }
 
-/* Adjustments for Fixed Navbar */
-body {
-    padding-top: 70px; /* Height of the navbar */
+/* Ensure the upload input is hidden but accessible */
+#uploadInput {
+    display: none;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 992px) {
-    .nav-link {
-        margin-right: 10px;
-    }
-
-    .btn-secondary {
-        margin-left: 5px;
-    }
-}
-
-/* Main Content Styling */
-main {
-    padding-top: 20px;
-}
-
-/* Footer Styling */
-footer {
-    margin-top: 50px;
-}
-
-footer h5 {
-    margin-bottom: 20px;
-    font-size: 1.2rem;
-}
-
-footer .quick-links {
-    text-align: left;
-    font-size: 0.9rem;
-    padding-left: 0;
-}
-
-footer .quick-links li {
-    margin-bottom: 10px;
-}
-
-footer a {
-    text-decoration: none;
-}
-
-footer a:hover {
-    color: #dcdcdc;
-}
-
-footer .fab {
-    font-size: 1.2rem;
-}
-
-.bg-dark {
-    background-color: #343a40 !important;
-}
-
-.text-dark {
-    color: #343a40 !important;
-}
-
-.text-white {
-    color: #ffffff !important;
-}
-
-.me-4 {
-    margin-right: 1.5rem !important;
-}
-
-/* Contrast Modes */
-
-/* High Contrast Mode */
-.high-contrast {
-    background-color: #000000; /* Black background */
-    color: #FFFFFF; /* White text */
-}
-
-.high-contrast a {
-    color: #FFFF00; /* Yellow links */
-}
-
-.high-contrast .navbar, 
-.high-contrast footer {
-    background-color: #000000;
-}
-
-.high-contrast button {
-    background-color: #FFFFFF;
-    color: #000000;
-}
-
-/* Grayscale Mode */
-.grayscale {
-    filter: grayscale(100%);
-}
-
-/* Transition for Smooth Mode Switching */
-body {
-    transition: background-color 0.5s ease, color 0.5s ease, filter 0.5s ease;
-}
-
-/* Focus Styles for Accessibility */
-#contrastToggle:focus,
-#audioToggle:focus,
-#searchInput:focus,
-#searchForm button:focus,
-#loginForm input:focus,
-#loginForm button:focus,
-#logoutButton:focus,
-#applyButton:focus {
-    outline: 3px solid #FFD700; /* Gold outline */
-    outline-offset: 2px;
-}
-
-/* Dashboard Styling */
-#dashboardSection h1 {
-    margin-bottom: 20px;
-}
-
-#dashboardSection .card {
-    margin-bottom: 20px;
-}
-
-#dashboardSection table {
+/* Virtual Tour Section Styling */
+.virtual-tour-container {
+    height: 500px; /* Set a reasonable height */
     width: 100%;
-}
-
-/* Hot Courses/AI Trends Section */
-.hot-courses .card {
-    transition: transform var(--transition-speed);
-}
-
-.hot-courses .card:hover {
-    transform: translateY(-5px);
-}
-
-/* Interest Form Styling */
-.course-prediction form {
-    max-width: 600px;
+    max-width: 100%;
     margin: 0 auto;
+    position: relative;
+    overflow: hidden; /* Prevent overflow */
 }
 
-.course-prediction input[type="text"] {
-    height: 50px;
-    font-size: 1rem;
+@media (max-width: 768px) {
+    .virtual-tour-container {
+        height: 300px; /* Adjust height for smaller screens */
+    }
 }
 
-.course-prediction button {
-    height: 50px;
-    font-size: 1rem;
-}
-
-/* Predicted Course Styling */
-#predictedCourse {
-    text-align: center;
-}
-
-#predictedCourse h4 {
-    margin-bottom: 15px;
-}
-
-#predictedCourse p {
+/* Virtual Tour Title Overlay */
+.tour-title {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
     font-size: 1.2rem;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 1000;
+}
+
+.tour-title.visible {
+    opacity: 1;
+}
+
+/* Tour Error Overlay */
+.tour-error {
+    position: fixed;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 0, 0, 0.8);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 1001;
+}
+
+.tour-error.visible {
+    opacity: 1;
+}
+
+/* Team Member Hover Effect */
+.team-member {
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* User Feedback Section Styling */
+.user-feedback h2,
+.user-feedback h3 {
     font-weight: bold;
+    color: #0d6efd; /* Bootstrap primary color */
 }
 
-/* Apply Page Video Section */
-.apply-tutorial .ratio {
-    max-width: 800px;
-    margin: 0 auto;
+.user-feedback .carousel-item .card {
+    border: none;
+    background-color: #f8f9fa;
 }
 
-.apply-tutorial p {
+.user-feedback .carousel-item .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.user-feedback .carousel-item .card-text {
     font-size: 1rem;
+}
+
+.user-feedback .carousel-item .fa-star,
+.user-feedback .carousel-item .fa-star-half-alt {
+    margin-right: 2px;
+}
+
+#feedbackForm .form-control,
+#feedbackForm .form-select {
+    height: 45px;
+    font-size: 1rem;
+}
+
+#feedbackForm textarea.form-control {
+    resize: vertical;
+}
+
+#feedbackForm button {
+    width: 150px;
+    height: 45px;
+    font-size: 1rem;
+}
+
+#feedbackConfirmation {
+    font-size: 1.2rem;
 }
 
 /* Read-Aloud Button Styling */
 #audioToggle {
-    position: relative;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    padding: 0;
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    z-index: 1000; /* Ensure it's on top */
 }
 
-#audioToggle i {
-    margin: 0 2px;
+#audioToggle svg {
+    width: 20px;
+    height: 20px;
 }
 
-
-/* public/css/styles.css */
-
-/* Global Styles */
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f8f9fa;
+#audioToggle img {
+    width: 16px;
+    height: 16px;
 }
 
-/* Sign-In Section Styling */
-.sign-in-section {
-    background: url('../assets/images/portal-background.jpg') no-repeat center center/cover;
+/* Contrast Toggle Button Styling */
+#contrastToggle {
+    display: flex;
+    align-items: center;
 }
 
-.sign-in-section .card {
-    background-color: rgba(255, 255, 255, 0.95);
+#contrastToggle i {
+    margin-right: 5px;
 }
 
-/* Dashboard Header Styling */
-.dashboard-section .d-flex {
-    transition: transform 0.3s ease-in-out;
+/* Carousel Controls Customization */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
 }
 
-.dashboard-section .d-flex:hover {
-    transform: scale(1.02);
+/* Optional: High Contrast Mode */
+.high-contrast {
+    background-color: #000;
+    color: #fff;
 }
 
-/* Module Cards Styling */
-.module-card {
-    transition: transform 0.3s, box-shadow 0.3s;
+.high-contrast .navbar, .high-contrast footer {
+    background-color: #000;
 }
 
-.module-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+.high-contrast .card {
+    background-color: #333;
+    color: #fff;
 }
 
-.module-card img {
-    height: 180px;
-    object-fit: cover;
+.high-contrast .btn-secondary {
+    background-color: #fff;
+    color: #000;
 }
 
-/* Personalized Message Styling */
-.alert-warning {
-    animation: fadeIn 2s;
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* Graphs Styling */
-.card-body {
-    position: relative;
-    overflow: hidden;
-}
-
-canvas {
-    width: 100% !important;
-    height: auto !important;
+.high-contrast .bi-volume-up-fill.text-primary {
+    fill: #fff; /* Ensures icons are visible on dark backgrounds */
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-    .module-card img {
-        height: 150px;
+    .team-member img {
+        width: 80px;
+        height: 80px;
     }
-}
-/* public/css/styles.css */
 
-/* Global Styles */
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f8f9fa;
-}
-
-/* Sign-In Section Styling */
-.sign-in-section {
-    background: url('../assets/images/portal-background.jpg') no-repeat center center/cover;
-}
-
-.sign-in-section .card {
-    background-color: rgba(255, 255, 255, 0.95);
-}
-
-/* Dashboard Header Styling */
-.dashboard-section .d-flex {
-    transition: transform 0.3s ease-in-out;
-}
-
-.dashboard-section .d-flex:hover {
-    transform: scale(1.02);
-}
-
-/* Module Cards Styling */
-.module-card {
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.module-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-.module-card img {
-    height: 180px;
-    object-fit: cover;
-}
-
-/* Personalized Message Styling */
-.alert-warning {
-    animation: fadeIn 2s;
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* Graphs Styling */
-.card-body {
-    position: relative;
-    overflow: hidden;
-}
-
-canvas {
-    width: 100% !important;
-    height: auto !important;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .module-card img {
-        height: 150px;
+    .virtual-tour-container {
+        height: 300px; /* Adjust height for smaller screens */
     }
-}
-
-/* Modal Styling */
-.modal .form-check-input:checked {
-    background-color: #0d6efd;
-    border-color: #0d6efd;
-}
-
-.modal .form-check-input:focus {
-    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-}
-
-/* Button Styles */
-.btn-primary {
-    background-color: #0d6efd;
-    border-color: #0d6efd;
-}
-
-.btn-primary:hover {
-    background-color: #0b5ed7;
-    border-color: #0a58ca;
-}
-
-.btn-warning {
-    background-color: #ffc107;
-    border-color: #ffc107;
-}
-
-.btn-warning:hover {
-    background-color: #ffca2c;
-    border-color: #ffb700;
-}
-
-/* Footer Styling */
-footer h5 {
-    font-weight: bold;
-}
-
-footer .quick-links li {
-    margin-bottom: 10px;
-}
-
-footer .quick-links a:hover {
-    text-decoration: underline;
 }
