@@ -46,7 +46,28 @@
               <a class="nav-link" href="student-portal.html">Student Portal</a>
             </li>
           </ul>
-          <!-- Updated Advanced Search Form -->
+         
+          
+          <!-- Read-Aloud and Contrast Toggle Buttons -->
+          <button id="audioToggle" class="btn btn-secondary me-2 d-flex align-items-center" aria-label="Toggle Read-Aloud">
+            <!-- Play Icon SVG -->
+            <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill me-2" viewBox="0 0 16 16">
+                <path d="M11.596 8.697l-6.363 3.692A.802.802 0 0 1 4 12.692V3.308a.802.802 0 0 1 1.233-.691l6.363 3.692a.802.802 0 0 1 0 1.383z"/>
+            </svg>
+            
+            <!-- Volume Icon SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-volume-up-fill" viewBox="0 0 16 16">
+                <path d="M11.536 14.01c-.384.123-.79.19-1.198.19A4.5 4.5 0 0 1 4.5 9V7a4.5 4.5 0 0 1 5.838-4.19l1.36-1.36a.5.5 0 1 1 .707.707L12.658 6.5A5.5 5.5 0 0 0 12.5 9c0 .408.067.814.19 1.198l1.36 1.36a.5.5 0 0 1-.707.707L11.536 14.01z"/>
+            </svg>
+            
+            <!-- Small Play Icon Image -->
+            <img src="images/play.jpg" alt="Play Icon" class="ms-2" style="width: 16px; height: 16px;">
+          </button>
+          
+          <button id="contrastToggle" class="btn btn-secondary" aria-label="Toggle Contrast Mode">
+              <i class="fas fa-adjust"></i> Contrast
+          </button>
+             <!-- Updated Advanced Search Form -->
           <form class="d-flex me-2 align-items-center position-relative" id="searchForm" aria-label="Advanced Search Form">
             <!-- Text Input with Search Icon -->
             <div class="input-group">
@@ -73,26 +94,6 @@
             </label>
             <input type="file" id="uploadInput" style="display: none;" accept=".jpg,.jpeg,.png,.pdf" aria-label="Upload Search File">
           </form>
-          
-          <!-- Read-Aloud and Contrast Toggle Buttons -->
-          <button id="audioToggle" class="btn btn-secondary me-2 d-flex align-items-center" aria-label="Toggle Read-Aloud">
-            <!-- Play Icon SVG -->
-            <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill me-2" viewBox="0 0 16 16">
-                <path d="M11.596 8.697l-6.363 3.692A.802.802 0 0 1 4 12.692V3.308a.802.802 0 0 1 1.233-.691l6.363 3.692a.802.802 0 0 1 0 1.383z"/>
-            </svg>
-            
-            <!-- Volume Icon SVG -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-volume-up-fill" viewBox="0 0 16 16">
-                <path d="M11.536 14.01c-.384.123-.79.19-1.198.19A4.5 4.5 0 0 1 4.5 9V7a4.5 4.5 0 0 1 5.838-4.19l1.36-1.36a.5.5 0 1 1 .707.707L12.658 6.5A5.5 5.5 0 0 0 12.5 9c0 .408.067.814.19 1.198l1.36 1.36a.5.5 0 0 1-.707.707L11.536 14.01z"/>
-            </svg>
-            
-            <!-- Small Play Icon Image -->
-            <img src="images/play.jpg" alt="Play Icon" class="ms-2" style="width: 16px; height: 16px;">
-          </button>
-          
-          <button id="contrastToggle" class="btn btn-secondary" aria-label="Toggle Contrast Mode">
-              <i class="fas fa-adjust"></i> Contrast
-          </button>
         </div>
       </div>
     </nav>
