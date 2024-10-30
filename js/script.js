@@ -229,3 +229,55 @@ document.addEventListener('DOMContentLoaded', () => {
     // Assuming cursor-listener.js handles hotspot interactions
 
 });
+
+// public/js/script.js
+
+document.addEventListener('DOMContentLoaded', () => {
+    // [Existing JavaScript Content]
+
+    /*-----------------------*/
+    /* 7. Digital Certificate Verification */
+    /*-----------------------*/
+
+    const certificateForm = document.getElementById('certificateForm');
+    const certificateNumberInput = document.getElementById('certificateNumber');
+    const verificationMessage = document.getElementById('verificationMessage');
+
+    if (certificateForm && certificateNumberInput && verificationMessage) {
+        certificateForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const certNumber = certificateNumberInput.value.trim();
+
+            if (certNumber === '') {
+                // Display error message if input is empty
+                verificationMessage.classList.remove('d-none', 'alert-success');
+                verificationMessage.classList.add('alert-danger');
+                verificationMessage.textContent = 'Please enter a certificate number.';
+                return;
+            }
+
+            // Simulate verification logic
+            // For demonstration, we'll assume any 8-digit number is valid
+            const certRegex = /^\d{8}$/; // Example: 8-digit certificate number
+
+            if (certRegex.test(certNumber)) {
+                // Display success message
+                verificationMessage.classList.remove('d-none', 'alert-danger');
+                verificationMessage.classList.add('alert-success');
+                verificationMessage.textContent = 'Certificate Verified Successfully!';
+            } else {
+                // Display failure message
+                verificationMessage.classList.remove('d-none', 'alert-success');
+                verificationMessage.classList.add('alert-danger');
+                verificationMessage.textContent = 'Invalid Certificate Number. Please try again.';
+            }
+
+            // Optional: Reset the form after submission
+            certificateForm.reset();
+        });
+    }
+
+    // [Remaining JavaScript Content]
+});
+
