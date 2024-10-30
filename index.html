@@ -50,10 +50,10 @@
             </li>
           </ul>
          
-          <!-- Updated Advanced Search Form -->
-          <form class="d-flex me-2 align-items-center position-relative" id="searchForm" aria-label="Advanced Search Form">
-            <!-- Text Input with Search Icon -->
-            <div class="input-group">
+          <!-- Search Form -->
+          <form class="d-flex flex-column flex-lg-row align-items-center me-2" id="searchForm" aria-label="Advanced Search Form">
+            <!-- First Row: Search Input and Button -->
+            <div class="input-group mb-2 mb-lg-0">
               <input 
                 class="form-control me-2" 
                 type="text" 
@@ -61,46 +61,49 @@
                 aria-label="Search for courses" 
                 id="searchQuery"
               >
-              <button class="btn btn-outline-success" type="submit" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit" aria-label="Submit Search">
                 <img src="images/search-icon.png" alt="Search" style="width: 20px; height: 20px;">
               </button>
             </div>
-            
-            <!-- Voice Search Button -->
-            <button type="button" id="voiceSearchBtn" class="btn btn-outline-secondary me-2" aria-label="Voice Search">
-              <img src="images/voice-icon.png" alt="Voice Search" style="width: 20px; height: 20px;">
+            <!-- Second Row: Voice Search and Upload Buttons -->
+            <div class="d-flex flex-row mt-2 mt-lg-0">
+              <!-- Voice Search Button -->
+              <button type="button" id="voiceSearchBtn" class="btn btn-outline-secondary me-2" aria-label="Voice Search">
+                <img src="images/voice-icon.png" alt="Voice Search" style="width: 20px; height: 20px;">
+              </button>
+              
+              <!-- Upload Button -->
+              <label for="uploadInput" class="btn btn-outline-secondary me-2 mb-0" aria-label="Upload Search File" style="cursor: pointer;">
+                <img src="images/upload-icon.png" alt="Upload" style="width: 20px; height: 20px;">
+              </label>
+              <input type="file" id="uploadInput" style="display: none;" accept=".jpg,.jpeg,.png,.pdf" aria-label="Upload Search File">
+            </div>
+          </form>
+          
+          <!-- Read-Aloud and Contrast Toggle Buttons -->
+          <div class="d-flex flex-row align-items-center mt-2 mt-lg-0">
+            <button id="audioToggle" class="btn btn-secondary me-2 d-flex align-items-center" aria-label="Toggle Read-Aloud">
+              <!-- Play Icon SVG -->
+              <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill me-2" viewBox="0 0 16 16">
+                  <path d="M11.596 8.697l-6.363 3.692A.802.802 0 0 1 4 12.692V3.308a.802.802 0 0 1 1.233-.691l6.363 3.692a.802.802 0 0 1 0 1.383z"/>
+              </svg>
+              
+              <!-- Volume Icon SVG -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-volume-up-fill" viewBox="0 0 16 16">
+                  <path d="M11.536 14.01c-.384.123-.79.19-1.198.19A4.5 4.5 0 0 1 4.5 9V7a4.5 4.5 0 0 1 5.838-4.19l1.36-1.36a.5.5 0 1 1 .707.707L12.658 6.5A5.5 5.5 0 0 0 12.5 9c0 .408.067.814.19 1.198l1.36 1.36a.5.5 0 0 1-.707.707L11.536 14.01z"/>
+              </svg>
+              
+              <!-- Small Play Icon Image -->
+              <img src="images/play.jpg" alt="Play Icon" class="ms-2" style="width: 16px; height: 16px;">
             </button>
             
-            <!-- Upload Button -->
-            <label for="uploadInput" class="btn btn-outline-secondary me-2 mb-0" aria-label="Upload Search File" style="cursor: pointer;">
-              <img src="images/upload-icon.png" alt="Upload" style="width: 20px; height: 20px;">
-            </label>
-            <input type="file" id="uploadInput" style="display: none;" accept=".jpg,.jpeg,.png,.pdf" aria-label="Upload File">
-          </form>
-
-          <!-- Read-Aloud and Contrast Toggle Buttons -->
-          <button id="audioToggle" class="btn btn-secondary me-2 d-flex align-items-center" aria-label="Toggle Read-Aloud">
-            <!-- Play Icon SVG -->
-            <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill me-2" viewBox="0 0 16 16">
-                <path d="M11.596 8.697l-6.363 3.692A.802.802 0 0 1 4 12.692V3.308a.802.802 0 0 1 1.233-.691l6.363 3.692a.802.802 0 0 1 0 1.383z"/>
-            </svg>
-            
-            <!-- Volume Icon SVG -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-volume-up-fill" viewBox="0 0 16 16">
-                <path d="M11.536 14.01c-.384.123-.79.19-1.198.19A4.5 4.5 0 0 1 4.5 9V7a4.5 4.5 0 0 1 5.838-4.19l1.36-1.36a.5.5 0 1 1 .707.707L12.658 6.5A5.5 5.5 0 0 0 12.5 9c0 .408.067.814.19 1.198l1.36 1.36a.5.5 0 0 1-.707.707L11.536 14.01z"/>
-            </svg>
-            
-            <!-- Small Play Icon Image -->
-            <img src="images/play.jpg" alt="Play Icon" class="ms-2" style="width: 16px; height: 16px;">
-          </button>
-          
-          <button id="contrastToggle" class="btn btn-secondary" aria-label="Toggle Contrast Mode">
-              <i class="fas fa-adjust"></i> Contrast
-          </button>
-           
+            <button id="contrastToggle" class="btn btn-secondary" aria-label="Toggle Contrast Mode">
+                <i class="fas fa-adjust"></i> Contrast
+            </button>
+          </div>
         </div>
       </div>
-    </nav>
+    </nav>    
     
     <!-- Hero Section -->
     <header class="hero-section">
