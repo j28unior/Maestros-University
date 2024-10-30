@@ -224,4 +224,14 @@ body {
     .virtual-tour-container {
         height: 300px; /* Adjust height for smaller screens */
     }
+    
+    /* Adjust search form elements on small screens */
+    #searchForm .input-group {
+        width: 100%;
+    }
+    
+    #searchForm .btn-outline-secondary,
+    #searchForm .btn-outline-success {
+        margin-top: 10px;
+    }
 }
