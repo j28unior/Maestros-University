@@ -2,37 +2,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const searchForm = document.getElementById('searchForm');
-    const searchInput = document.getElementById('searchInput');
-
-    // Retrieve last search query from localStorage
-    const lastSearch = localStorage.getItem('lastSearch');
-    if (lastSearch) {
-        searchInput.value = lastSearch;
-    }
-
-    searchForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const query = searchInput.value.trim().toLowerCase();
-
-        if (query === '') return;
-
-        // Save the search query
-        localStorage.setItem('lastSearch', query);
-
-        // Perform search logic (simple example)
-        performSearch(query);
-    });
-
-    function performSearch(query) {
-        // For demonstration, we'll alert the search query.
-        // In a real-world scenario, you'd implement search logic to filter content.
-        alert(`You searched for: "${query}". Feature under development!`);
-    }
-});
-// public/js/search.js
-
-document.addEventListener('DOMContentLoaded', () => {
-    const searchForm = document.getElementById('searchForm');
     const searchResults = document.getElementById('searchResults');
 
     let coursesData = []; // To store fetched courses
@@ -45,7 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => {
             console.error('Error fetching courses data:', error);
-            searchResults.innerHTML = '<p class="text-center text-danger">Failed to load courses data.</p>';
+            if (searchResults) {
+                searchResults.innerHTML = '<p class="text-center text-danger">Failed to load courses data.</p>';
+            }
         });
 
     if (searchForm && searchResults) {
@@ -72,6 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function displaySearchResults(courses) {
+        if (!searchResults) return;
+
         searchResults.innerHTML = ''; // Clear previous results
 
         if (courses.length === 0) {
